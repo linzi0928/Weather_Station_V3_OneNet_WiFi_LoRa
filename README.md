@@ -19,7 +19,8 @@ This is the most important part of this design. Sensors and controllers are as f
 * VEML6070 to get UV intensity.  
 * ZPH02 to get PM2.5.  
 * ESP8266 to upload the data directly (Optional)  
-  
+**Schematic of Data Collector**  
+![Schematic of Data Collector](fig/sch_outdoor.jpg)  
 **STEP 1 Collect ALL Materials!**  
 Use Altium Designer to open the PCB project and check the circuit is suitable for you. If you don't want any changes, you can directly submit the .PcbDoc files to the factory. And then compare the schematic diagram and the BOM(bill of materials) exported by AltiumDesigner to purchase components. Except the components in the BOM, you also need this:  
 LS Ultra Capacitor 2.8V 3000F x2  
@@ -47,7 +48,8 @@ This part of this design can recieve data packages from the outdoor collector. A
 * CH340C to connect the computer.  
 * 25Q128 flash to store the data.  
 * 3D printing shell.  
-  
+**Schematic of Data Uploader**  
+![Schematic of Data Uploader](fig/sch_indoor.jpg)  
 **STEP 1 Collect ALL Materials!**  
 The steps to export BOM are the same as before. In addition to the materials in the BOM, the following items need to be prepared:  
 18650 lithium battery x2
@@ -62,3 +64,4 @@ Update later...
 The program is also created on the MDK521 use CUBE MX.
 # Android APP
 This APP can connect the OneNet and get the data. It is built on Android Studio. Please understand that it only has Chinese version currently.
+![APP](fig/fig_app.jpg)  
