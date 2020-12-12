@@ -22,7 +22,7 @@ This is the most important part of this design. Sensors and controllers are as f
 **Schematic of Data Collector**  
 ![Schematic of Data Collector](fig/sch_outdoor.jpg)  
 **STEP 1 Collect ALL Materials!**  
-Use Altium Designer to open the PCB project and check the circuit is suitable for you. If you don't want any changes, you can directly submit the .PcbDoc files to the factory. And then compare the schematic diagram and the BOM(bill of materials) exported by AltiumDesigner to purchase components. Except the components in the BOM, you also need this:  
+Use Altium Designer to open the PCB project and check if the circuit is suitable for you. If you don't want any changes, you can directly submit the .PcbDoc files to the factory. And then compare the schematic diagram and the BOM(bill of materials) exported by AltiumDesigner to purchase components. Except the components in the BOM, you also need these:  
 LS Ultra Capacitor 2.8V 3000F x2  
 Outdoor waterproof box made by ABS or other reliable materials 160x210x100mm x1  
 Test Tube 30x100mm(For installing UV sensor) x1  
