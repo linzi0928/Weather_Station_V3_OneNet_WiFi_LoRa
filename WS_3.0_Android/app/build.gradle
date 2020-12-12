@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file('D:\\WeatherStation2.0\\WS_3.0_Android\\ls.jks')
+            storePassword '91d428aa'
+            keyAlias = 'key0'
+            keyPassword '91d428aa'
+        }
+        release {
+            storeFile file('D:\\WeatherStation2.0\\WS_3.0_Android\\ls.jks')
+            storePassword '91d428aa'
+            keyAlias = 'key0'
+            keyPassword '91d428aa'
+        }
+    }
+    compileSdkVersion 21
+    defaultConfig {
+        applicationId "iotgui.esdk.onenet.com.iotgui"
+        minSdkVersion 21
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    android.applicationVariants.all{
+        variant->
+            variant.outputs.all{
+                outputFileName="GIE_Weather_Station.apk"
+            }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildToolsVersion = '28.0.3'
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:support-annotations:20.0.0"
+    implementation 'com.android.support:appcompat-v7:21.0.3'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+}

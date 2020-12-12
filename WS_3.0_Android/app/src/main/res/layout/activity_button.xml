@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="节点名称：">
+    </TextView>
+
+    <EditText
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:background="@color/colorPrimaryDark"
+    android:textColor="#fff"
+    android:id="@+id/ed1">
+    </EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设备ID："
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:id="@+id/ed2">
+    </EditText>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="应用秘钥："
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:id="@+id/ed4">
+    </EditText>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="字体大小：（一般取15）"
+        android:inputType="number"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:id="@+id/ed5">
+    </EditText>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="字体位置：（一般取20）"
+        android:inputType="number"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:id="@+id/ed6">
+    </EditText>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="注：返回即自动保存,重启应用生效(GIE工作室2020年12月11日第一版程序)"
+        android:layout_marginTop="1dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="配置文件可在外部存储根目录“Weather_station_settingV3.txt中手动修改”"
+        android:layout_marginTop="1dp"/>
+</LinearLayout>

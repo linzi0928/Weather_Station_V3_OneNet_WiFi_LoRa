@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/colorPrimaryDark" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+
+        <TextView
+            android:id="@+id/tx02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="GIES气象站User Terminal Version 3.0 OneNet"
+            android:textColor="#fff"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_below="@id/ll_dash"
+        android:padding="10dp">
+
+      <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="10dp"
+          android:layout_weight="1"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:id="@+id/ll_btn"
+                android:orientation="vertical"
+                android:paddingTop="40dp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_menu"
+                    android:paddingBottom="10dp"
+                    android:text="节点设置"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_return"
+                    android:paddingTop="10dp"
+                    android:text="    刷新    "
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#fff"
+                        android:text="time:">
+                    </TextView>
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/clock_txt"
+                        android:text="2020-12-11\n16:27:20"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="#fff">
+                    </TextView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#fff"
+                    android:textColor="#fff">
+                </TextView>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:background="#fff"
+                        android:textColor="#fff">
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#fff"
+                            android:text="Info:"
+                            android:padding="2dp">
+                        </TextView>
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent">
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:textColor="#FF3333"
+                                android:gravity="center_horizontal"
+                                android:id="@+id/warning_txt_r"
+                                android:text="高温报警\n紫外线报警"
+                                android:layout_weight="1"
+                                android:padding="3dp">
+                            </TextView>
+                            <TextView
+                                android:layout_width="1dp"
+                                android:layout_height="fill_parent"
+                                android:background="#fff"
+                                android:textColor="#fff">
+                            </TextView>
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/warning_txt_y"
+                                android:gravity="center_horizontal"
+                                android:textColor="#FFCC33"
+                                android:text="PM2.5临界\n"
+                                android:layout_weight="1"
+                                android:padding="3dp">
+                            </TextView>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_dash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+
+        <clwater.androiddashboard.DashBoard
+            android:id="@+id/dash1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <clwater.androiddashboard.DashBoard
+            android:id="@+id/dash2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1">-->
+        <TextView
+            android:id="@+id/tx01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="环境参数\n\n\n\n\n\n\n\n\n更新时间2020-12-11 15:08"
+            android:textColor="#fff"
+            android:layout_weight="1.1"/>
+
+<!--        </RelativeLayout>-->
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_above="@id/ll_chart">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="温度"
+            android:textColor="#fff"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text=" "
+            android:layout_weight="1"
+            >
+        </TextView>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/cover_startup"
+        android:scaleType="centerCrop"
+        >
+
+    </ImageView>
+</RelativeLayout>
