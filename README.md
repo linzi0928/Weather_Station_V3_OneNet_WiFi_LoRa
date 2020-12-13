@@ -38,10 +38,11 @@ Update later...
 **STEP 4 Program and Debug**  
 Notice: Because STM32 works under 1.8V voltage in this design, you need to download the program use the full version of JLINK.  
 The program is created on the MDK521 use CUBE MX. The data collector and the uploader are connected by sx1278 in 433MHz frequency band.In order to save power, when the collector completes a data acquisition of sensors, it will pack all the data and send it in 433MHz frequency band only once. So the uploader needs to listen all the time to avoid missing packets.The communication protocol between collector and uploader is shown in the chart below.  
+
 |  Byte  | 0-3 | 4-7 | 8-11 | 12-15 | 16-16 | 17-20 | 21-22 | 23-24 | 25-26 | 27-30 |
-| :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |  
-| Content | Temperature | Humidity | Pressure | Gas resistance | VOC Level | PM2.5 | UV | CO2 | TVOC | Voltage |  
-| Type | Float | Float | Float | Float | u8 | u32 | u16 | u16 | u16 | Float |  
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| Content | Temperature | Humidity | Pressure | Gas resistance | VOC Level | PM2.5 | UV | CO2 | TVOC | Voltage |
+| Type | Float | Float | Float | Float | u8 | u32 | u16 | u16 | u16 | Float |
   
 # Indoor Data Display&Uploader
 This part of this design can recieve data packages from the outdoor collector. And then upload these data to OneNet using http protocol. In addition, the data can be stored in  128Mbit memory and displayed on a 256x64 OLED screen in real time. After connecting to the computer through USB, the data can be read out through serial port. Controller and other components are as follows:  
