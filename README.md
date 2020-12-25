@@ -65,12 +65,12 @@ Knob handle for ec11 x1
 10pin 1mm 10cm reverse FPC cable  x1  
 3D printing shell(design file also in this repository  
 M3 screws and nuts  
-Dupont lines
+Dupont lines  
 **STEP 2 Complete the Welding of the Circuit**  
 ![PCB of indoor uploader](fig/fig_indoor_pcb.jpg)  
 There is no special process for indoor uploader welding. The specific parameter of each component can be obtained by look at the schematic diagram.We recommend welding the chips, resistors and capacitors at first, then welding higher components, and finally welding the plug-ins, which can make the welding process more convenient.After the welding is completed, power on to test whether it is working properly. Normally, there will be abnormal work caused by improper welding.     
 **STEP 3 Program and Debug**  
-Same as the data collector, the program is also created on the MDK521 use CUBE MX and we also recommend using JLINK to download and debug the program. If you do not want to add or remove any functions, you can directly download the program into the microcontroller. 
+Same as the data collector, the program is also created on the MDK521 use CUBE MX and we also recommend using JLINK to download and debug the program. If you do not want to add or remove any functions, you can directly download the program into the microcontroller.  
 Wifi name, password and various information required to access the OneNet platform can be written through the USB serial port using AT command.Use a micro usb cable to connect the computer and the uploader. If you are using this kind of USB serial port for the first time, you may need to install the CH340 driver.Then open a serial port assistant and select the port number that the uploader is connected to. Then you can send AT commands through serial port assistant to write configuration information.All available AT commands are shown below(Note: All commands need to end with a newline (\r\n)):  
 * AT+EXP  
 This command is used to query and export the weather information stored in the uploader.  
