@@ -45,7 +45,7 @@ The program is created on the MDK521 use CUBE MX. The data collector and the upl
 | Type | Float | Float | Float | Float | u8 | u32 | u16 | u16 | u16 | Float |
   
 # Indoor Data Display&Uploader
-This part of this design can recieve data packages from the outdoor collector. And then upload these data to OneNet using http protocol. In addition, the data can be stored in  128Mbit memory and displayed on a 256x64 OLED screen in real time. After connecting to the computer through USB, the data can be read out through serial port. Controller and other components are as follows:  
+This part of this design can recieve data packages from the outdoor collector. And then upload these data to OneNet using http protocol. In addition, the data can be stored in  128Mbit memory and displayed on a 256x64 OLED screen in real time. After connecting to the computer through USB, the data can be exported through serial port. Controller and other components are as follows:  
 * STM32F103CBT6 as main controller.  
 * SX1278 receive data from the outdoor collector.  
 * Two 18650 lithium batteries to storage the power.    
@@ -58,16 +58,38 @@ This part of this design can recieve data packages from the outdoor collector. A
 ![Schematic of Data Uploader](fig/sch_indoor.jpg)  
 **STEP 1 Collect ALL Materials!**  
 The steps to export BOM are the same as before. In addition to the materials in the BOM, the following items need to be prepared:  
-18650 lithium battery x2
-256x64 OLED screen x1
-3D printing shell(design file also in this repository
+18650 lithium battery x2  
+256x64 OLED screen x1  
+IPEX-SMA cable x2  
+Knob handle for ec11 x1  
+10pin 1mm 10cm reverse FPC cable  x1  
+3D printing shell(design file also in this repository  
 M3 screws and nuts  
+Dupont lines
 **STEP 2 Complete the Welding of the Circuit**  
-Update later...  
-**STEP 3 Assembly**  
-Update later...  
-**STEP 4 Program and Debug**  
-The program is also created on the MDK521 use CUBE MX.
+![PCB of indoor uploader](fig/fig_indoor_pcb.jpg)  
+There is no special process for indoor uploader welding. The specific parameter of each component can be obtained by look at the schematic diagram.We recommend welding the chips, resistors and capacitors at first, then welding higher components, and finally welding the plug-ins, which can make the welding process more convenient.After the welding is completed, power on to test whether it is working properly. Normally, there will be abnormal work caused by improper welding.     
+**STEP 3 Program and Debug**  
+Same as the data collector, the program is also created on the MDK521 use CUBE MX and we also recommend using JLINK to download and debug the program. If you do not want to add or remove any functions, you can directly download the program into the microcontroller. 
+Wifi name, password and various information required to access the OneNet platform can be written through the USB serial port using AT command.Use a micro usb cable to connect the computer and the uploader. If you are using this kind of USB serial port for the first time, you may need to install the CH340 driver.Then open a serial port assistant and select the port number that the uploader is connected to. Then you can send AT commands through serial port assistant to write configuration information.All available AT commands are shown below(Note: All commands need to end with a newline (\r\n)):  
+* AT+EXP  
+This command is used to query and export the weather information stored in the uploader.  
+Using AT+EXP?, you can query the storage address of the latest data. The address indicates the location where the weather information is stored in the flash, starting from 0x10000 (0x00000-0x10000 are reserved for storing configuration information). Each time a piece of weather information is stored, the address will increase by 64 bytes, which is Hexadecimal 0x40, for example, when the first message is stored, the latest address will change from 0x10000 to 0x10040, and so on.  
+Using AT+EXP=<addr> you can export all weather information starting from this address to the latest. If addr=10000, all weather information can be exported.(Example: AT+EXP=10000)  
+* AT+ERS  
+This command can be used to erase all weather information. For safety, you need to type and send this command twice to complete the deletion.  
+* AT+CWJAP  
+This command can be used to configure the ssid and password of the Wifi connected to the uploader.  
+Using AT+CWJAP=<WiFi SSID>,<WiFi password> to achieve it. For example:AT+CWJAP=TP-Link-xxx,88888888. Note that the SSID cannot be longer than 21 letters, and the password cannot be longer than 20 letters, otherwise the configuration will fail.  
+* AT+CMSET  
+This command can be used to set the access information of the OneNet platform.  
+Using AT+CMSET=<dev_id>,<API-key> to achieve it. For example:AT+CMSET=657284563,SkFGTtTMpEFf=xG580jwowTZ9r0=.
+  
+**STEP 4 Assembly**  
+Because it is not easy to modify the circuit or program after assembly, we recommend installing it into the shell after debugging.You can paint the shell to your desired color before assembling if you like. In addition, you can also use the DuPont cable to lead the debug port to the side of the circuit board, so that you can easily modify the program even after assembly.  
+![indoor uploader](fig/fig_indoor.jpg)  
+The first step in assembly is to install the screen. First, insert the FPC cable into the screen, and then fold the FPC into a 90-degree angle so that it can be drawn out from the side. Then put the screen into the shell diagonally upwards, so that the PCB of the screen is stuck in the gap at the top of the shell and allow the screen expose completely. Then use hot melt glue to simply fix the bottom and sides of the screen.  
+Then insert the circuit board with the battery into the shell. After installing the back plate, the assembly is complete.
 # Android APP
 This APP can connect the OneNet and get the data. It is built on Android Studio. Please understand that it only has Chinese version currently.
 ![APP](fig/fig_app.jpg)  
