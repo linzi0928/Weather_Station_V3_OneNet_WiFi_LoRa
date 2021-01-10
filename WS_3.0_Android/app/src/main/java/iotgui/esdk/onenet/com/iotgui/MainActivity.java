@@ -540,8 +540,8 @@ public class MainActivity extends Activity {
         save_temp_data+=Float.toString(value) + "T  ";
 
         value = data.getvoltage();
-        text_output += "电量：" + Float.toString(value) + "mV  " + "\n";
-        save_temp_data+=Float.toString(value) + "mV ";
+        text_output += "电量：" + Float.toString(value) + "V  " + "\n";
+        save_temp_data+=Float.toString(value) + "V ";
 
         rf_time = fff_time;
         text_output += "更新时间" + (rf_time) ;
