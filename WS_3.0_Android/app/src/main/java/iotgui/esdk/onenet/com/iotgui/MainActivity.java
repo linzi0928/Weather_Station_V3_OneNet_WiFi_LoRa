@@ -84,6 +84,7 @@ DensityUtil.java主要包含分辨率适配相关代码
 Http连接onenet相关代码来自华为SDK改
  Android Studio版本：3.5.3
 天津大学 GIE工作室2020年2月8日V1.0
+                  2020年12月13日V2.0
 关注b站up主：GIE工作室，获得更多干货与信息
 */
 
@@ -309,19 +310,19 @@ public class MainActivity extends Activity {
         {
             tx_disp_r+="PM2.5报警\n";
         }
-        if(data.getTVOC()>=10f&&data.getTVOC()<=15f)
+        if(data.getTVOC()>=30f&&data.getTVOC()<=45f)
         {
             tx_disp_y+="TVOC临界\n";
         }
-        else if(data.getTVOC()>15f)
+        else if(data.getTVOC()>45f)
         {
             tx_disp_r+="TVOC报警\n";
         }
-        if(data.getvoltage()>=3000f&&data.getvoltage()<=3200f)
+        if(data.getvoltage()>=3.0f&&data.getvoltage()<=3.2f)
         {
             tx_disp_y+="电压临界\n";
         }
-        else if(data.getvoltage()<3000f)
+        else if(data.getvoltage()<3.0f)
         {
             tx_disp_r+="电压报警\n";
         }
@@ -520,7 +521,7 @@ public class MainActivity extends Activity {
         save_temp_data+=Float.toString(value) + "Pa  ";
 
         value = data.getPm2_5();
-        text_output += "PM2.5：" + Float.toString(value/10f) + "ug  " + "\n";
+        text_output += "PM2.5：" + Float.toString(value) + "ug  " + "\n";
         save_temp_data+=Float.toString(value) + "ug ";
 
         value = data.getUvv();
@@ -536,7 +537,7 @@ public class MainActivity extends Activity {
         save_temp_data+=Float.toString(value) + "ppm ";
 
         value = data.getTVOC();
-        text_output += "TVOC：" + Float.toString(value) + "\n";
+        text_output += "TVOC：" + Float.toString(value) + "ppb  "+"\n";
         save_temp_data+=Float.toString(value) + "T  ";
 
         value = data.getvoltage();

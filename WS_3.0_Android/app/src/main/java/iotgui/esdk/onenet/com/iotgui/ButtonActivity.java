@@ -209,7 +209,7 @@ public class ButtonActivity extends Activity {
     }
     private  void write_setting() {
         int line_log=0;
-        String setting_file = Environment.getExternalStorageDirectory().toString() + File.separator +"Weather_station_settings.txt";
+        String setting_file = Environment.getExternalStorageDirectory().toString() + File.separator +"Weather_station_settingsV3.txt";
         File fs_inf=new File(setting_file);
         FileOutputStream outStream;
         try {
